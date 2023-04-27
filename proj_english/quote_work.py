@@ -1,0 +1,16 @@
+import csv
+from random import randint
+
+def get_quotes_for_table():
+    quotes = []
+    with open("./data/quotes.csv", "r", encoding="utf-8") as f:
+        reader = csv.reader(f, delimiter=';')
+        for cnt, (quote, person) in enumerate(reader, start=1):
+            quotes.append([cnt, quote, person])
+    return quotes
+
+def get_quote_to_play():
+    quotes = get_quotes_for_table()
+    index = randint(0, len(quotes)-1)
+    num, quote, person = quotes[index]
+    return quote, person

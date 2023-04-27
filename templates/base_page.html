@@ -14,19 +14,44 @@
         <header class="border-bottom">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                 <div class="fs-2 mb-3">
-                    <img src="{% static 'calculator.svg' %}" alt="Проект про математику" width="32" height="32"/>
-                    <span>Проект про математику</span>
+                    <img src="static/Britain_Flag_flat.png" alt="Site of connoisseurs of English language and culture" width="64" height="64"/>
+                    <span>Ravens of the Tower</span>
                 </div>
             </a>
         </header>
-        <div class="p-5 mb-4 bg-light rounded-3" id="title-box">
-            <div class="container-fluid py-5">
-                <h1 class="display-1 fw-bold">{% block page-title %}{% endblock %}</h1>
-                <p class="col-md-8 fs-4">{% block page-lead %}{% endblock %}</p>
+
+        <header class="py-5">
+            <div class="container px-5 pb-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-xxl-5">
+                        <!-- Header text content-->
+                        <div class="text-center text-xxl-start">
+                            <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">{% block page-title %}{% endblock %}</span></h1>
+                            <div class="badge bg-gradient-primary-to-secondary text-white mb-4"><div class="text-uppercase">English &middot; Python &middot; MIPT</div></div>
+                            <div class="fs-3 fw-light text-muted">{% block page-lead %}{% endblock %}</div>
+
+                        </div>
+                    </div>
+                    <div class="col-xxl-7">
+                        <!-- Header profile picture-->
+                        <div class="d-flex justify-content-center mt-6 mt-xxl-0">
+                            <div class="profile bg-gradient-primary-to-secondary">
+                                <img class="profile-img" src="static/Tower.jpg" alt="..." width="600" height="600">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </header>
         {% block content %}{% endblock %}
-        <footer class="footer pt-3 mt-4 text-muted border-top">© 2023</footer>
+        <footer class="bg-white py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0">Burtakov Ilya MIPT</div></div>
+                </div>
+            </div>
+        </footer>
     </div>
 </main>
 </body>

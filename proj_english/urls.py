@@ -16,11 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
-
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('', views.index),
     path('terms-list', views.terms_list),
     path('add-term', views.add_term),
     path('send-term', views.send_term),
-    path('stats', views.show_stats)
+    path('stats', views.show_stats),
+    path('terms-play', views.terms_play),
+    path('add-note', views.add_note),
+    path('notes', views.show_notes),
+    path('check-term', views.check_term),
+    path('send-note', views.send_note)
 ]
+if settings.DEBUG:
+        urlpatterns += static(settings.MEDIA_URL,
+                              document_root=settings.MEDIA_ROOT)
