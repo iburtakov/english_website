@@ -2,6 +2,7 @@
 def write_note(note_name, note_description):
     notes = []
     with open("./data/notes.csv", "r", encoding="utf-8") as f:
+        id = 0
         for line in f.readlines():
             id, name = line.strip("\n").split(";")
             notes.append([id, name])
@@ -25,7 +26,10 @@ def get_notes_to_show():
             notes.append([id, name])
             ids.append(int(id))
     for id in ids:
-        with open(f"./data/notes/note_{id}", "r", encoding="utf-8") as f:
-            notes[id-1].append([l.strip('\n') for l in f.readlines()])
+        try:
+            with open(f"./data/notes/note_{id}", "r", encoding="utf-8") as f:
+                notes[id-1].append([l.strip('\n') for l in f.readlines()])
+        except IOError:
+            notes = []
     print(notes)
     return notes
