@@ -28,25 +28,17 @@ def add_term(request):
 def send_term(request):
     if request.method == "POST":
         cache.clear()
-        user_name = request.POST.get("name")
-        user_email = request.POST.get("email")
         new_term = request.POST.get("new_word", "")
         new_definition = request.POST.get("new_translation", "").replace(";", ",")
 
-        context = {"user": user_name}
-        if len(new_definition) == 0 and len(new_term) == 0:
+        context = {"user": "user"}
+        if len(new_definition) == 0 or len(new_term) == 0:
             context["success"] = False
-            context["comment"] = "Слово или выражение и перевод должны быть не пустыми"
-        elif len(new_term) == 0:
-            context["success"] = False
-            context["comment"] = "Слово или выражение должно быть не пустым"
-        elif len(new_definition) == 0:
-            context["success"] = False
-            context["comment"] = "Перевод должен быть не пустым"
+            context["comment"] = "Fields with word and translation must not be empty. Return to the previous page"
         else:
             context["success"] = True
-            context["comment"] = "Ваше слово или выражение добавлено"
-            terms_work.write_term(new_term, new_definition, f"{user_name}/{user_email}")
+            context["comment"] = "Success!"
+            terms_work.write_term(new_term, new_definition, "user")
         if context["success"]:
             context["success-title"] = ""
         return render(request, "term_request.html", context)
@@ -70,12 +62,12 @@ def check_term(request):
         context = dict()
         if known_word_user.lower() != known_word_correct.lower():
             context["success"] = False
-            context["comment"] = f"Правильный ответ: {known_word_correct}Вы ввели: {known_word_user}"
+            context["comment"] = f"Right answer: {known_word_correct}Your answer: {known_word_user}"
             context["correct"] = known_word_correct
             context["user_ans"] = known_word_user
         else:
             context["success"] = True
-            context["comment"] = "Вы абсолютно правы! Так держать!"
+            context["comment"] = "Your answer is right"
         return render(request, "terms_play_check.html", context)
     else:
         return terms_play(request)
@@ -117,12 +109,12 @@ def check_grammar(request):
         context = dict()
         if known_word_user.lower() != known_word_correct.lower():
             context["success"] = False
-            context["comment"] = f"Правильный ответ: {known_word_correct}Вы ввели: {known_word_user}"
+            context["comment"] = f"Right answer: {known_word_correct}Your answer: {known_word_user}"
             context["correct"] = known_word_correct
             context["user_ans"] = known_word_user
         else:
             context["success"] = True
-            context["comment"] = "Вы абсолютно правы! Так держать!"
+            context["comment"] = "Your answer is right"
         return render(request, "grammar_play_check.html", context)
     else:
         return terms_play(request)

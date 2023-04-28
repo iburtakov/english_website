@@ -15,7 +15,7 @@ def write_note(note_name, note_description):
     with open(note_file_name, "w", encoding="utf-8") as f:
         f.write(note_description)
 
-
+# read notes from notes.csv
 def get_notes_to_show():
     notes = []
     ids = []

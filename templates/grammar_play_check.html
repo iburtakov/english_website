@@ -2,9 +2,9 @@
 
 {% block page-title %}
 {% if success %}
-Браво
+Your answer is <span class="fw-bold"></span>correct
 {% else %}
-Потренируйтесь еще
+Your answer is <span class="fw-bold"></span>wrong
 {% endif %}
 {% endblock %}
 
@@ -13,18 +13,18 @@
 
 {% block content %}
 <div class="container-sm px-5 py-5" id="term-form-result">
-  <h2 class="pb-2 border-bottom">Результат игры</h2>
+
   {% if success %}
-  <p>{{ comment }}</p>
+  <p></p>
   {% else %}
-  <p>Вы ввели <b>{{ user_ans }}</b><br>
-  Правильный ответ <b>{{ correct }}</b></p>
+  <p>Your answer: <b>{{ user_ans }}</b><br>
+  Right answer: <b>{{ correct }}</b></p>
   {% endif %}
 
-  <h2 class="pb-2 border-bottom">Что можно сделать?</h2>
+  <h2 class="pb-2 border-bottom">Other pages:</h2>
   <ul>
-      <li>Вспомнить еще одно <a href="/grammar-play">слово или выражение</a></li>
-      <li>Вернуться на <a href="/">главную</a></li>
-  </ul>
+    <li>Return to <a href="/">base page</a></li>
+    <li>Try to check your <a href="/grammar-play">grammar</a> again</li>
+</ul>
 </div>
 {% endblock %}

@@ -1,27 +1,23 @@
 {% extends "base_page.html" %}
 
 {% block page-title %}
-аааааааааааааыыыыыыыыыы
+Test your grammar knowledge
 {% endblock %}
 
 {% block page-lead %}
-ыыыыыыыыыааааааа
+Insert the missing word / ending / wordform according to the grammar rules
 {% endblock %}
 
 {% block content %}
 <div class="container-sm px-5 py-5" id="term-remind">
   <form method="post">
       <div class="row px-5 py-2">
-          <h3>Вспомни английский вариант слова</h3>
-      </div>
-      <div class="row px-5 py-2">
           <div class="col-md-6">
-              <label for="new_translation">Перевод на русский</label><br>
               <b>{{ trans }}</b>
           </div>
           <div class="col-md-6">
-            <label for="known_word">Выражение или слово</label>
-            <input type="text" class="form-control input-lg" name="known_word" id="known_word" placeholder="Введи английское слово" value required>
+            <label for="known_word">Your answer:</label>
+            <input type="text" class="form-control input-lg" name="known_word" id="known_word" placeholder="" value required>
           </div>
       </div>
       <div class="row px-5 py-2">

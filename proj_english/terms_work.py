@@ -24,6 +24,8 @@ def write_term(new_term, new_translation, term_src):
     with open("./data/terms.csv", "w", encoding="utf-8") as f:
         f.write("\n".join(new_terms))
 
+
+
 def get_term_to_play():
     terms = get_terms_for_table()
     index = randint(0, len(terms)-1)
@@ -31,6 +33,7 @@ def get_term_to_play():
     with open("./data/tmp", "w", encoding="utf-8") as f:
         f.write(term)
     return trans
+
 
 
 def get_term_to_check():
