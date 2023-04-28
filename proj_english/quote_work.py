@@ -9,6 +9,7 @@ def get_quotes_for_table():
             quotes.append([cnt, quote, person])
     return quotes
 
+
 def get_quote_to_play():
     quotes = get_quotes_for_table()
     index = randint(0, len(quotes)-1)

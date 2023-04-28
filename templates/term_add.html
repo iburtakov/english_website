@@ -15,19 +15,6 @@
 <div class="container-sm px-5 py-5" id="term-form">
     <form method="post" enctype="multipart/form-data">
         <div class="row px-5 py-2">
-            <h3>Данные пользователя</h3>
-        </div>
-        <div class="row px-5 py-2">
-            <div class="col-md-6">
-                <label for="name">Имя:</label>
-                <input type="text" class="form-control input-lg" name="name" id="name" placeholder="Иван" value required>
-            </div>
-            <div class="col-md-6">
-                <label for="email">Email:</label>
-                <input type="text" class="form-control input-lg" name="email" id="email" placeholder="ivan@ivanov.com" value required>
-            </div>
-        </div>
-        <div class="row px-5 py-2">
             <h3>Новое английское выражение или слово</h3>
         </div>
         <div class="row px-5 py-2">
@@ -40,15 +27,25 @@
                 <input type="text" class="form-control input-lg" name="new_translation" id="new_translation" placeholder="Кошка">
             </div>
         </div>
-        <!-- <div class="row px-5 py-3">
-            <div class="col-md-12">
-                <label class="form-label" for="customFile">Иллюстрация (по желанию)</label>
-                <input type="file" class="form-control" id="customFile" />
+
+        <div class="row px-5 py-2">
+            <h3>Данные пользователя</h3>
+        </div>
+        <div class="row px-5 py-2">
+            <div class="col-md-6">
+                <label for="name">Имя:</label>
+                <input type="text" class="form-control input-lg" name="name" id="name" placeholder="Иван" value required>
             </div>
-        </div> -->
+            <div class="col-md-6">
+                <label for="email">Email:</label>
+                <input type="text" class="form-control input-lg" name="email" id="email" placeholder="ivan@ivanov.com" value required>
+            </div>
+        </div>
+
         <div class="row px-4 py-2">
             <button type="submit" class="btn btn-primary" formaction="/send-term">Отправить</button>
         </div>
+        
     </form>
 
 </div>

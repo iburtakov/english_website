@@ -7,7 +7,9 @@ God save the King!
 {% block page-lead %}
 This is a Web application for learning English language and culture. <br/>
 Add new words, study, outline lessons in this application. <br/> <br/>
-<b>{{ quote }}</b> <br/> 
+
+Random quote of a famous person: <br/>
+<b>&laquo;{{ quote }}&raquo;</b> <br/> 
 <b>{{ person }}</b>
 {% endblock %}
 
@@ -22,9 +24,9 @@ Add new words, study, outline lessons in this application. <br/> <br/>
                 </svg>
             </div>
             <div>
-                <h3 class="fs-2">Список слов</h3>
-                <p>Список имеющихся английских слов с переводом</p>
-                <a href="/terms-list" class="btn btn-primary">Изучить</a>
+                <h3 class="fs-2">The Great Dictionary</h3>
+                <p>List of words with translation held by the Crown</p>
+                <a href="/terms-list" class="btn btn-primary">Search</a>
             </div>
         </div>
         <div class="col d-flex">
@@ -34,10 +36,10 @@ Add new words, study, outline lessons in this application. <br/> <br/>
                 </svg>
             </div>
             <div>
-                <h3 class="fs-2">Добавь новые слова</h3>
-                <p>Добавь вновь выученные слова в словарь, вставь картинку для наглядности</p>
+                <h3 class="fs-2">Add new words to The Great Dictionary </h3>
+                <p>Serve the metropolis! Find new words in all corners of the world!</p>
                 <a href="/add-term" class="btn btn-primary">
-                    Добавить
+                    Add
                 </a>
             </div>
         </div>
@@ -48,25 +50,25 @@ Add new words, study, outline lessons in this application. <br/> <br/>
                 </svg>
             </div>
             <div>
-                <h3 class="fs-2">Статистика</h3>
-                <p>Сколько слов уже есть? Какой они длины?</p>
-                <a href="/stats" class="btn btn-primary">
-                    Проанализировать
-                </a>
+                <h3 class="fs-2">Test your knowledge of words</h3>
+                <p>In long-distance colonial campaigns, one cannot disgrace the Motherland! Test yourself</p>
+                <a href="/terms-play" class="btn btn-primary">Train</a>
             </div>
         </div>
     </div>
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
         <div class="col d-flex">
-            <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-                <svg class="bi" width="1em" height="1em">
-                    <use xlink:href="#cpu-fill"></use>
-                </svg>
-            </div>
-            <div>
-                <h3 class="fs-2">Проверь себя на знания слов</h3>
-                <p>Учи слова в игровой форме: вспомни английское слово по его переводу</p>
-                <a href="/terms-play" class="btn btn-primary">Играть</a>
+            <div class="col d-flex">
+                <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                    <svg class="bi" width="1em" height="1em">
+                        <use xlink:href="#cpu-fill"></use>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="fs-2">Test your grammar</h3>
+                    <p>You need to speak competently even with natives</p>
+                    <a href="/grammar-play" class="btn btn-primary">Train</a>
+                </div>
             </div>
         </div>
         <div class="col d-flex">
@@ -76,10 +78,10 @@ Add new words, study, outline lessons in this application. <br/> <br/>
                 </svg>
             </div>
             <div>
-                <h3 class="fs-2">Законспектируй занятие</h3>
-                <p>Добавь конспект занятия, чтобы не упустить важные знания</p>
+                <h3 class="fs-2">Outline the lesson</h3>
+                <p>Add a summary of the lesson or a brief so as not to miss ideas and facts</p>
                 <a href="/add-note" class="btn btn-primary">
-                    Конспектировать
+                    Add
                 </a>
             </div>
         </div>
@@ -90,10 +92,10 @@ Add new words, study, outline lessons in this application. <br/> <br/>
                 </svg>
             </div>
             <div>
-                <h3 class="fs-2">Повторение — чья-то мать</h3>
-                <p>Не забывай освежать в памяти законспектированные занятия</p>
+                <h3 class="fs-2">Revision</h3>
+                <p>Check your notes and recordings</p>
                 <a href="/notes" class="btn btn-primary">
-                    Повторить
+                    Check
                 </a>
             </div>
         </div>
