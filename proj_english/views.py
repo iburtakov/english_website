@@ -45,11 +45,6 @@ def send_term(request):
     else:
         return add_term(request)
 
-
-def show_stats(request):
-    stats = terms_work.get_terms_stats()
-    return render(request, "stats.html", stats)
-
 def terms_play(request):
     trans = terms_work.get_term_to_play()
     return render(request, "terms_play.html", context={"trans": trans})
@@ -94,6 +89,7 @@ def show_notes(request):
     return render(request, "notes.html", context={"notes": notes})
 
 #############################################################
+
 
 ########################## grammar ##########################
 

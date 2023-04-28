@@ -1,14 +1,17 @@
 {% extends "base_page_application.html" %}
 
 {% block page-title %}
+{% endblock %}
+
+{% block page-lead %}
+
 {% if success %}
 Your answer is <span class="fw-bold"></span>correct
 {% else %}
 Your answer is <span class="fw-bold"></span>wrong
 {% endif %}
-{% endblock %}
 
-{% block page-lead %}{% endblock %}
+{% endblock %}
 
 
 {% block content %}
