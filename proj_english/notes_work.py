@@ -5,11 +5,12 @@ import os
 NOTES_FILE = "./data/notes.csv"
 NOTES_DIR = "./data/notes"
 
-def write_note(note_name, note_description):
+
+def write_note_to_table(note_name, note_description):
     # Read notes from file
-    with open(NOTES_FILE, "r", encoding="utf-8", newline="") as f:
-        reader = csv.reader(f, delimiter=";")
-        notes = list(reader)
+    with open(NOTES_FILE, mode="r", encoding="utf-8", newline="") as notes_file:
+        notes_reader = csv.reader(notes_file, delimiter=";")
+        notes = list(notes_reader)
 
     # Get the ID for the new note
     new_note_id = int(notes[-1][0]) + 1 if notes else 1
@@ -19,14 +20,14 @@ def write_note(note_name, note_description):
     notes.append(new_note)
 
     # Write notes to file
-    with open(NOTES_FILE, "w", encoding="utf-8", newline="") as f:
-        writer = csv.writer(f, delimiter=";")
-        writer.writerows(notes)
+    with open(NOTES_FILE, mode="w", encoding="utf-8", newline="") as notes_file:
+        notes_writer = csv.writer(notes_file, delimiter=";")
+        notes_writer.writerows(notes)
 
     # Write note description to file
     note_file_path = f"{NOTES_DIR}/note_{new_note[0]}"
-    with open(note_file_path, "w", encoding="utf-8") as f:
-        f.write(note_description)
+    with open(note_file_path, mode="w", encoding="utf-8") as note_file:
+        note_file.write(note_description)
 
 
 # read notes from notes.csv

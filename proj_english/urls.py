@@ -24,12 +24,12 @@ urlpatterns = [
     path('terms-list', views.terms_list),
     path('add-term', views.add_term),
     path('send-term', views.send_term_to_check),
-    path('terms-play', views.terms_use),
+    path('terms-use', views.terms_use),
     path('add-note', views.add_note),
     path('notes', views.show_notes),
     path('check-term', views.check_term),
     path('send-note', views.send_note),
-    path('grammar-play', views.grammar_play),
+    path('grammar-use', views.grammar_use),
     path('check-grammar', views.check_grammar)
 ]
 if settings.DEBUG:

@@ -99,7 +99,7 @@ def send_note(request):
             "comment": "Fields with note name and description must not be empty. Return to the previous page"
         }
     else:
-        notes_work.write_note(note_name, note_description)
+        notes_work.write_note_to_table(note_name, note_description)
         context = {
             "success": True,
             "comment": "Success!"
@@ -116,9 +116,9 @@ def show_notes(request):
 
 ########################## grammar ##########################
 
-def grammar_play(request):
+def grammar_use(request):
     trans = grammar_work.get_grammar_to_use()
-    return render(request, "grammar_play.html", context={"trans": trans})
+    return render(request, "grammar_use.html", context={"trans": trans})
 
 def check_grammar(request):
     if request.method != "POST":
@@ -136,7 +136,7 @@ def check_grammar(request):
         "user_ans": known_word_user,
     }
 
-    return render(request, "grammar_play_check.html", context)
+    return render(request, "grammar_use_check.html", context)
     
 
 #############################################################
