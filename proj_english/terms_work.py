@@ -1,5 +1,5 @@
 import csv
-from random import randint
+import random
 
 # get terms from the table 
 def get_terms_for_table():
@@ -13,32 +13,39 @@ def get_terms_for_table():
 
 # write new terms to terms.csv
 def write_term(new_term, new_translation, term_src):
-    new_term_line = f"{new_term};{new_translation};{term_src}"
-    with open("./data/terms.csv", "r", encoding="utf-8") as f:
-        existing_terms = [l.strip("\n") for l in f.readlines()]
-        title = existing_terms[0]
-        old_terms = existing_terms[1:]
-    terms_sorted = old_terms + [new_term_line]
-    terms_sorted.sort()
-    new_terms = [title] + terms_sorted
-    with open("./data/terms.csv", "w", encoding="utf-8") as f:
-        f.write("\n".join(new_terms))
+    new_row = [new_term, new_translation, term_src]
+    terms_file = "./data/terms.csv"
+
+    # read existing terms from file and append the new row
+    with open(terms_file, "r", encoding="utf-8", newline="") as f:
+        reader = csv.reader(f, delimiter=";")
+        existing_rows = list(reader)
+    existing_rows.append(new_row)
+
+    # sort the rows and write them back to the file
+    sorted_rows = sorted(existing_rows, key=lambda row: row[0])
+    with open(terms_file, "w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f, delimiter=";")
+        writer.writerows(sorted_rows)
 
 
 
 def get_term_to_play():
     terms = get_terms_for_table()
-    index = randint(0, len(terms)-1)
+    index = random.randint(0, len(terms) - 1)
     num, term, trans = terms[index]
-    with open("./data/tmp", "w", encoding="utf-8") as f:
+    tmp_file = "./data/tmp"
+
+    # write the term to a temporary file
+    with open(tmp_file, "w", encoding="utf-8") as f:
         f.write(term)
+
     return trans
 
 
 
 def get_term_to_check():
     with open("./data/tmp", "r", encoding="utf-8") as f:
-        for line in f.readlines():
-            term = line
+        term = f.read().strip()
     return term
 

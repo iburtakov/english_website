@@ -49,5 +49,4 @@ def get_notes_to_show():
             notes = []
             break
     
-    print(notes)
     return notes

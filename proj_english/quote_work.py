@@ -1,5 +1,6 @@
 import csv
 from random import randint
+from typing import Tuple
 
 def get_quotes_for_table():
     quotes = []
@@ -10,7 +11,7 @@ def get_quotes_for_table():
     return quotes
 
 
-def get_quote_to_play():
+def get_quote_to_play() -> Tuple[str, str]:
     quotes = get_quotes_for_table()
     index = randint(0, len(quotes)-1)
     num, quote, person = quotes[index]
