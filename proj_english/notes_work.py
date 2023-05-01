@@ -2,29 +2,32 @@
 import csv
 import os
 
+NOTES_FILE = "./data/notes.csv"
+NOTES_DIR = "./data/notes"
+
 def write_note(note_name, note_description):
-    notes = []
-    notes_file = "./data/notes.csv"
-    id = 0
-
-    # read notes from file and append to list
-    with open(notes_file, "r", encoding="utf-8", newline="") as f:
+    # Read notes from file
+    with open(NOTES_FILE, "r", encoding="utf-8", newline="") as f:
         reader = csv.reader(f, delimiter=";")
-        for row in reader:
-            notes.append(row)
-            id = int(row[0])
+        notes = list(reader)
 
-    # append new note to list and write all notes to file
-    new_note = [str(id + 1), note_name]
+    # Get the ID for the new note
+    new_note_id = int(notes[-1][0]) + 1 if notes else 1
+
+    # Append new note to list
+    new_note = [str(new_note_id), note_name]
     notes.append(new_note)
-    with open(notes_file, "w", encoding="utf-8", newline="") as f:
+
+    # Write notes to file
+    with open(NOTES_FILE, "w", encoding="utf-8", newline="") as f:
         writer = csv.writer(f, delimiter=";")
         writer.writerows(notes)
 
-    # write note description to a new file
-    note_file_name = f"./data/notes/note_{new_note[0]}"
-    with open(note_file_name, "w", encoding="utf-8") as f:
+    # Write note description to file
+    note_file_path = f"{NOTES_DIR}/note_{new_note[0]}"
+    with open(note_file_path, "w", encoding="utf-8") as f:
         f.write(note_description)
+
 
 # read notes from notes.csv
 def get_notes_to_show():

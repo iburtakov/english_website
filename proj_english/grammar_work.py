@@ -1,25 +1,17 @@
 import csv
 import random
 
-def get_grammar_for_table():
-    sentences = []
+def get_grammar_from_table():
     with open("./data/grammar.csv", "r", encoding="utf-8") as f:
-        reader = csv.reader(f, delimiter=';')
-        for cnt, (sentence, word, source) in enumerate(reader, start=1):
-            sentences.append([cnt, sentence, word])
+        sentences = [[cnt, sentence, word] for cnt, (sentence, word, source)
+                     in enumerate(csv.reader(f, delimiter=';'), start=1)]
     return sentences
 
 
-def get_grammar_to_play():
-    sentences = get_grammar_for_table()
-    index = random.randint(0, len(sentences) - 1)
-    num, sentence, word = sentences[index]
-    tmp_file = "./data/tmp"
-
-    # write the word to a temporary file
-    with open(tmp_file, "w", encoding="utf-8") as f:
+def get_grammar_to_use():
+    _, sentence, word = random.choice(get_grammar_from_table())
+    with open("./data/tmp", "w", encoding="utf-8") as f:
         f.write(word)
-
     return sentence
 
 def get_grammar_to_check():
