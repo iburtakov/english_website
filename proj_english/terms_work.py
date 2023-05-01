@@ -3,14 +3,20 @@ import random
 
 # get terms from the table 
 def get_terms_for_table():
-    with open("./data/terms.csv", "r", encoding="utf-8") as f:
-        reader = csv.reader(f, delimiter=";")
-        return [[cnt, term, translation] for cnt, (term, translation, source) in enumerate(reader, start=1)]
+    terms = []
+    with open("./data/terms_db_user.csv", "r", encoding="utf-8") as f:
+        for i, line in enumerate(f, 1):
+            if i == 1:
+                continue  # skip header row
+            term, translation, source = line.strip().split(";")
+            terms.append([i-1, term, translation])
+    return terms
+
 
 
 # write new terms to terms.csv
 def write_term(new_term: str, new_translation: str, term_src: str):
-    terms_file = "./data/terms.csv"
+    terms_file = "./data/terms_db_user.csv"
     with open(terms_file, "a", encoding="utf-8", newline="") as f:
         writer = csv.writer(f, delimiter=";")
         writer.writerow([new_term, new_translation, term_src])
